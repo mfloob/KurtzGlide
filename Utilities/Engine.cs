@@ -1,0 +1,74 @@
+﻿using KurtzGlide.Utilities;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Threading;
+
+namespace KurtzGlide
+{
+    public class Engine
+    {
+        private List<EngineTask> taskList = new List<EngineTask>();
+        private DispatcherTimer timer = new DispatcherTimer();
+        public Logger Log { get { return MainWindow.Log; } }
+
+        private async Task<T> Run<T>(T x) => await Task.Run(() => x);
+        private void EngineTimerTick(object sender, EventArgs e) => this.OnTick();
+        public int TickDelay
+        {
+            get { return TickDelay; }
+            set
+            {
+                this.timer.Interval = new TimeSpan(0, 0, 0, 0, value);
+                Log.Log($"Tick delay set to {value}.");
+            }
+        }
+
+        public Engine(int tickDelay)
+        {
+            this.timer.Interval = new TimeSpan(0, 0, 0, 0, tickDelay);
+            this.timer.Tick += EngineTimerTick;
+            this.timer.Start();
+        }
+
+        private async void OnTick()
+        {
+            try
+            {
+                foreach (EngineTask task in this.taskList)
+                {
+                    if (await Run(task.Validate()))
+                        await Run(task.Execute());
+                }
+            }
+            catch (Exception e) { }
+        }
+
+        public void Add(params EngineTask[] tasks)
+        {
+            foreach (EngineTask task in tasks)
+            {
+                if (!this.taskList.Contains(task))
+                {
+                    this.taskList.Add(task);
+                    Log.Log($"Starting {task.ToString().Substring(11)}.");
+                }
+            }
+        }
+
+        public void Remove(params EngineTask[] tasks)
+        {
+            foreach (EngineTask task in tasks)
+            {
+                if (this.taskList.Contains(task))
+                {
+                    this.taskList.Remove(task);
+                    Log.Log($"Removed {task.ToString().Substring(11)}.");
+                }
+            }
+        }
+    }
+}
