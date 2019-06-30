@@ -94,8 +94,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Utilities\Engine.cs" />
-    <Compile Include="EngineTask.cs" />
-    <Compile Include="LocalPlayer.cs" />
+    <Compile Include="Utilities\EngineTask.cs" />
+    <Compile Include="Utilities\LocalPlayer.cs" />
     <Compile Include="Utilities\Logger.cs" />
     <Compile Include="Utilities\MemoryUtility.cs" />
     <Compile Include="Utilities\SigScanSharp.cs" />
