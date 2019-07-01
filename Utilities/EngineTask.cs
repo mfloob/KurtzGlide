@@ -62,7 +62,7 @@ namespace KurtzGlide
                     if (this.Attached)
                     {
                         this.Attached = false;
-                        Log.Log("Process not found, searching...");
+                        Log.Log("Process not found. Searching...");
                     }
                 }
                 return false;
@@ -122,7 +122,7 @@ namespace KurtzGlide
             return true;
         }
 
-        public override bool Validate() => this.LocalPlayer.IsFound && this.LocalPlayer.Health > 0;        
+        public override bool Validate() => this.LocalPlayer?.IsFound ?? false;        
     }
 
     public class InfiniteManaTask : EngineTask
@@ -133,7 +133,7 @@ namespace KurtzGlide
             return true;
         }
 
-        public override bool Validate() => this.LocalPlayer.IsFound;
+        public override bool Validate() => this.LocalPlayer?.IsFound ?? false;
     }
 
     public class InfiniteStaminaTask : EngineTask
@@ -144,7 +144,7 @@ namespace KurtzGlide
             return true;
         }
 
-        public override bool Validate() => this.LocalPlayer.IsFound;
+        public override bool Validate() => this.LocalPlayer?.IsFound ?? false;
     }
 
     public class InfiniteKarmaTask : EngineTask
@@ -155,7 +155,7 @@ namespace KurtzGlide
             return true;
         }
 
-        public override bool Validate() => this.LocalPlayer.IsFound;
+        public override bool Validate() => this.LocalPlayer?.IsFound ?? false;
     }
 
     public class SetSlidersTask : EngineTask
@@ -182,6 +182,6 @@ namespace KurtzGlide
             return true;
         }
 
-        public override bool Validate() => this.LocalPlayer.IsFound;
+        public override bool Validate() => this.LocalPlayer?.IsFound ?? false;
     }
 }

@@ -19,6 +19,7 @@ namespace KurtzGlide
 
         private async Task<T> Run<T>(T x) => await Task.Run(() => x);
         private void EngineTimerTick(object sender, EventArgs e) => this.OnTick();
+         
         public int TickDelay
         {
             get { return TickDelay; }
