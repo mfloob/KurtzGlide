@@ -52,7 +52,7 @@ namespace KurtzGlide
                     if (!this.Attached)
                     {
                         this.Attached = true;
-                        Log.Log("Process found. Looking for LocalPlayer...");
+                        Log.Log("Process found. Searching for LocalPlayer...");
                     }
                 }
                 else

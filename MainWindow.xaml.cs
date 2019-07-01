@@ -25,8 +25,8 @@ namespace KurtzGlide
         {
             InitializeComponent();
             Log = new Logger(this.LogBox);
-            Log.Log("Initializing...");
-            this.engine = new Engine(75);
+            Log.Log("Initializing, searching for process...");
+            this.engine = new Engine(this.TickTimeLabel, 75);
             this.engine.Add( new AttachMemoryTask(this.ProcessStatusLabel), new GetLocalPlayerTask(this.engine, this.LocalPlayerStatusLabel), new SetSlidersTask(this.AttackSpeedSlider, this.CastSpeedSlider, this.MovementSpeedSlider, this.DamageMultiplierSlider));
         }
 

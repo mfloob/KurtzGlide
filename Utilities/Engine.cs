@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Threading;
 
 namespace KurtzGlide
@@ -13,7 +14,8 @@ namespace KurtzGlide
     {
         private List<EngineTask> taskList = new List<EngineTask>();
         private DispatcherTimer timer = new DispatcherTimer();
-        public Logger Log { get { return MainWindow.Log; } }
+        private Logger Log { get { return MainWindow.Log; } }
+        private Label tickTimeLabel;
 
         private async Task<T> Run<T>(T x) => await Task.Run(() => x);
         private void EngineTimerTick(object sender, EventArgs e) => this.OnTick();
@@ -27,8 +29,9 @@ namespace KurtzGlide
             }
         }
 
-        public Engine(int tickDelay)
+        public Engine(Label tickTimeLabel, int tickDelay)
         {
+            this.tickTimeLabel = tickTimeLabel;
             this.timer.Interval = new TimeSpan(0, 0, 0, 0, tickDelay);
             this.timer.Tick += EngineTimerTick;
             this.timer.Start();
@@ -36,6 +39,7 @@ namespace KurtzGlide
 
         private async void OnTick()
         {
+            Stopwatch stopwatch = Stopwatch.StartNew();
             try
             {
                 foreach (EngineTask task in this.taskList)
@@ -44,7 +48,8 @@ namespace KurtzGlide
                         await Run(task.Execute());
                 }
             }
-            catch (Exception) { Log.Log($"Caught exception due to stale data from mirrored async task."); }
+            catch (Exception) { } //Log.Log($"Caught exception due to stale data from mirrored async task. Continuing..."); }
+            tickTimeLabel.Content = $"{stopwatch.ElapsedMilliseconds} ms";
         }
 
         public void Add(params EngineTask[] tasks)

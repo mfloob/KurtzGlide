@@ -35,6 +35,8 @@
                     <ScrollViewer x:Name="LogScroller" HorizontalAlignment="Left" Height="145" Margin="6,125,0,0" VerticalAlignment="Top" Width="456" Focusable="False" VerticalScrollBarVisibility="Auto">
                         <ItemsControl x:Name="LogBox" SizeChanged="LogBox_SizeChanged" ScrollViewer.VerticalScrollBarVisibility="Auto" VerticalAlignment="Top" FontSize="11"/>
                     </ScrollViewer>
+                    <Label Content="Tick Time:" HorizontalAlignment="Left" Height="14" Margin="384,269,0,-3" VerticalAlignment="Top" Width="46" FontSize="10" Padding="0" Foreground="White"/>
+                    <Label x:Name="TickTimeLabel" Content="0 ms" HorizontalAlignment="Left" Height="14" Margin="435,269,0,-3" VerticalAlignment="Top" Width="37" FontSize="10" Padding="0" Foreground="White"/>
                 </Grid>
             </TabItem>
         </TabControl>
