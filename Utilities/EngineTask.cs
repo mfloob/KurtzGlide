@@ -31,10 +31,7 @@ namespace KurtzGlide
     {
         private Label ProcessStatusLabel { get; }
 
-        public AttachMemoryTask(Label processStatusLabel)
-        {
-            this.ProcessStatusLabel = processStatusLabel;
-        }
+        public AttachMemoryTask(Label processStatusLabel) => this.ProcessStatusLabel = processStatusLabel;
 
         public override bool Execute()
         {
@@ -98,7 +95,9 @@ namespace KurtzGlide
         {
             if (!this.Attached)
                 return false;
+
             SetLabelStatus(this.LocalPlayerStatusLabel, this.LocalPlayer.IsFound);
+
             if (this.LocalPlayer.IsFound && !localFound)
             {
                 Log.Log("Found LocalPlayer! Ready to begin.");
@@ -183,9 +182,6 @@ namespace KurtzGlide
             return true;
         }
 
-        public override bool Validate()
-        {
-            return this.LocalPlayer.IsFound;
-        }
+        public override bool Validate() => this.LocalPlayer.IsFound;
     }
 }

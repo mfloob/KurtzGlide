@@ -27,7 +27,7 @@
                     <Slider x:Name="AttackSpeedSlider" HorizontalAlignment="Left" Height="25" Margin="123,8,0,0" VerticalAlignment="Top" Width="158" Focusable="False" Maximum="9999" ValueChanged="AttackSpeedSlider_ValueChanged"/>
                     <Slider x:Name="CastSpeedSlider" HorizontalAlignment="Left" Height="25" Margin="123,33,0,0" VerticalAlignment="Top" Width="158" Focusable="False" Maximum="9999" ValueChanged="CastSpeedSlider_ValueChanged"/>
                     <Slider x:Name="MovementSpeedSlider" HorizontalAlignment="Left" Height="25" Margin="123,58,0,0" VerticalAlignment="Top" Width="158" Focusable="False" Maximum="9999" ValueChanged="MovementSpeedSlider_ValueChanged"/>
-                    <Label x:Name="AttackSpeedLabel" Content="0" HorizontalAlignment="Left" Height="23" Margin="286,8,0,0" VerticalAlignment="Top" Width="55"/>
+                    <Label x:Name="AttackSpeedLabel" Content="0" HorizontalAlignment="Left" Height="23" Margin="286,5,0,0" VerticalAlignment="Top" Width="55"/>
                     <Label x:Name="CastSpeedLabel" Content="0" HorizontalAlignment="Left" Height="23" Margin="286,31,0,0" VerticalAlignment="Top" Width="55"/>
                     <Label x:Name="MoveSpeedLabel" Content="0" HorizontalAlignment="Left" Height="23" Margin="286,57,0,0" VerticalAlignment="Top" Width="55"/>
                     <Label x:Name="DamageMultiplierLabel" Content="0" HorizontalAlignment="Left" Height="23" Margin="286,82,0,0" VerticalAlignment="Top" Width="55"/>

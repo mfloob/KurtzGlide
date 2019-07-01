@@ -23,7 +23,7 @@ namespace KurtzGlide
             set
             {
                 this.timer.Interval = new TimeSpan(0, 0, 0, 0, value);
-                Log.Log($"Tick delay set to {value}.");
+                Log.Log($"Tick delay set to {value} ms.");
             }
         }
 
@@ -44,7 +44,7 @@ namespace KurtzGlide
                         await Run(task.Execute());
                 }
             }
-            catch (Exception e) { }
+            catch (Exception) { Log.Log($"Caught exception due to stale data from mirrored async task."); }
         }
 
         public void Add(params EngineTask[] tasks)
