@@ -12,10 +12,7 @@ namespace KurtzGlide
         private MemoryUtility memory;
         private IntPtr baseAddress;
 
-        public LocalPlayer(MemoryUtility memory)
-        {
-            this.memory = memory;                          
-        }
+        public LocalPlayer(MemoryUtility memory) => this.memory = memory;                                  
 
         #region Offsets
         private struct Offsets

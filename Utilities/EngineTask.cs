@@ -33,10 +33,7 @@ namespace KurtzGlide
 
         public AttachMemoryTask(Label processStatusLabel) => this.ProcessStatusLabel = processStatusLabel;
 
-        public override bool Execute()
-        {
-            return true;
-        }
+        public override bool Execute() => true;        
 
         public override bool Validate()
         {
