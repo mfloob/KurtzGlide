@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KurtzGlide"
         mc:Ignorable="d"
-        Title="v1.0" Height="343.491" Width="484.911" ResizeMode="CanMinimize" TitlebarHeight="20" TitleCharacterCasing="Normal">
+        Title="v1.1" Height="343.491" Width="484.911" ResizeMode="CanMinimize" TitlebarHeight="20" TitleCharacterCasing="Normal">
     <Grid Background="#FF252526">
         <TabControl HorizontalAlignment="Left" Height="314" Margin="1,0,0,0" VerticalAlignment="Top" Width="478">
             <TabItem x:Name="HomeTab" Header="Home" Controls:ControlsHelper.HeaderFontSize="18">
