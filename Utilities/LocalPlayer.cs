@@ -17,15 +17,15 @@ namespace KurtzGlide
         #region Offsets
         private struct Offsets
         {
-            internal const int AttackSpeed = 0x17E0;
-            internal const int CastSpeed = 0x17E4;
-            internal const int MoveSpeed = 0x17E8;
-            internal const int DamageMultiplier = 0x17EC;
-            internal const int Health = 0x1884;
-            internal const int RegenHealth = 0x1888;
-            internal const int Stamina = 0x1910;
-            internal const int Karma = 0x1914;
-            internal const int Mana = 0x1918;
+            internal const int AttackSpeed = 0x17F0;
+            internal const int CastSpeed = 0x17F4;
+            internal const int MoveSpeed = 0x17F8;
+            internal const int DamageMultiplier = 0x17FC;
+            internal const int Health = 0x1894;
+            internal const int RegenHealth = 0x1898;
+            internal const int Stamina = 0x1920;
+            internal const int Karma = 0x1924;
+            internal const int Mana = 0x1928;
         }
         #endregion
 
@@ -76,7 +76,7 @@ namespace KurtzGlide
         }
         public bool IsFound
         {
-            get => memory.ReadValue<int>(this.baseAddress, new int[] { 0x0 }) == 844814848;
+            get => memory.ReadValue<long>(this.baseAddress, new int[] { 0x0 }) > 999999999;
         }
 
         public void FindBaseAddress()
