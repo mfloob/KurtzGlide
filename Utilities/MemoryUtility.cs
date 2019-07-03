@@ -24,7 +24,7 @@ namespace KurtzGlide.Utilities
             var sigScan = new SigScanSharp(this.process.Handle, this.process.MainModule);
             IntPtr baseAddress = (IntPtr)sigScan.FindPattern("A0 0F 00 02 00 00 00 00 ? ? ? ? ? ? 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 B4 42", out lTime) + 0x8;
             if (baseAddress.ToInt64() < 0xFFFF)
-                baseAddress = this.process.MainModule.BaseAddress + 0x3a03f80;
+                baseAddress = this.process.MainModule.BaseAddress + 0x3a38300;
             return GetPointer(baseAddress, offsetArr);
         }
 
